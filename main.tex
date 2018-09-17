@@ -1,4 +1,18 @@
 \documentclass{letter}
+\usepackage{xspace}
+
+\ifdefined\receiverMale
+  \newcommand\receiverBegin[0]{Señor}
+\else
+  \newcommand\receiverBegin[0]{Señora}
+\fi
+
+\ifdefined\needsExoneration
+  \newcommand\exonerationMessage[0]{
+  Debido a lo imprevisto de mi cese solicito que se me exonere del plazo de preaviso de 30 días, tal como establece el Artículo 18º del Texto Único Ordenado de la Ley de Fomento del Empleo: Ley de Productividad y Competitividad Laboral (Decreto Supremo 003-97-TR) por lo cual mi último día de labores será el día \resignationStartDate.}
+\else
+  \newcommand\exonerationMessage[0]{}
+\fi
 
 \begin{document}
 
@@ -13,7 +27,29 @@
 
 \begin{flushleft}
 
+\receiverBegin \xspace \receiverName
+
+\jobTitle \xspace de \businessName
+
+Presente. -
+
+Por medio de la presente tengo el agrado de saludarlo y al mismo tiempo poner en su conocimiento que por motivos estrictamente personales me veo precisado a formular mi renuncia irrevocable al puesto de trabajo que vengo ocupando en la compañía, la que se hará efectiva a partir del día \resignationStartDate.
+
+\exonerationMessage
+
+Agradeciéndole por la oportunidad de desarrollo que me ha brindado la empresa a lo largo de este tiempo, ruego a Usted disponer se me cancele mis beneficios sociales y se me extienda mi Certificado de Trabajo dentro de las 48 siguientes a mi cese.
+
+Atentamente,
+
+\begin{flushright}
+\underline{\hspace{4cm}}
+
+DNI: \docNumber
+
+\fullName
+
+\end{flushright}
+
 \end{flushleft}
 
 \end{document}
-% pdflatex "\def\cityDate{Lima, 12 de Septiembre del 2018} \input{main.tex}" %
